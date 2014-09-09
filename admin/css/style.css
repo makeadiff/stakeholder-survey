@@ -1,0 +1,43 @@
+
+/* Messages */
+.message-area {
+	position:absolute;
+	z-index:1100;
+	top:30px;
+	left:45%;
+	color:#fff;
+	padding:5px 5px 5px 10px;
+	border-radius:3px;
+	box-shadow: 3px 3px 10px #333 !important;
+}
+#warning-message {
+	background-color:orange;
+	font-weight:bold;
+}
+#error-message, .error-message {
+	background-color:red;
+	font-weight:bold;
+}
+#success-message, .success-message {
+	background-color:darkgreen;
+	font-weight:bold;
+}
+	
+.warning {
+	color:orange;
+	font-weight:bold;
+}
+.error, .error-message {
+	color:red;
+	font-weight:bold;
+}
+.success, .success-message {
+	color:darkgreen;
+	font-weight:bold;
+}
+
+#warning-message,.warning, #success-message,.success,#error-message,.error {
+	padding-left:20px;
+	background-repeat:no-repeat;
+	background-position:center left;
+}
