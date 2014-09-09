@@ -16,6 +16,12 @@ if(empty($QUERY['vol'])) {
 	$user_id = base64_decode($QUERY['vol']); // 'MQ==' is Binny.
 }
 
+$result = $sql->from("SS_UserAnswer")->where(array("user_id"=>$user_id))->get();
+if($result) {
+	render('entered.php');
+	exit;
+}
+
 $user = $sql->from("User")->find($user_id);
 $questions = $sql->from("SS_Question")->where(array('status'=>'1'))->get();
 $answers = $sql->from("SS_Answer")->where(array('status'=>'1'))->sort('level')->get();
