@@ -1,5 +1,6 @@
 <?php
-$server_host = $_SERVER['HTTP_HOST'];
+$server_host = 'localhost';
+if(isset($_SERVER['HTTP_HOST'])) $server_host = $_SERVER['HTTP_HOST'];
 //Configuration file for iFrame
 $config = array(
 	'site_title'	=> 'Stakeholder Survey',
