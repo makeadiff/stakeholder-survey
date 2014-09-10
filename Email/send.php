@@ -12,10 +12,12 @@ $template = file_get_contents('template.html');
 $run_count = 1;
 $login_details = array(
         'host'      => "smtp.gmail.com",
-        'username'	=> '',
-        'password'	=> '',
 
-    );
+        // 'username'  => "",
+        // 'password'  => "",
+}
+
+require('logins.php');
 
 // No edits beyond this point.
 $to = $send_per_run;
