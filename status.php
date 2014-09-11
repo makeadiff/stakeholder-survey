@@ -5,7 +5,7 @@ $cities = $sql->getById("SELECT id,name FROM City ORDER BY name");
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>MAD Cred</title>
+<title>Stakeholder Survey Status</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="../profile/css/national.css" />
 <link type="text/css" rel="stylesheet" href="../profile/css/profile.css" />
