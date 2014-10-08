@@ -20,7 +20,7 @@ $cities = $sql->getById("SELECT id,name FROM City ORDER BY name");
 <script type="text/javascript" src="../profile/js/jquery.percentageloader/src/jquery.percentageloader-0.1.js"></script>
 <style type="text/css">
 	#wrapper {
-		height: 2500px;
+		height: 2800px;
 	}
 </style>
 </head>
@@ -48,7 +48,7 @@ foreach($cities as $city_id=>$name) {
 	<div id = 'loader<?php echo $city_id ?>' class = 'city_loader'>
 		<h2 class = 'label'><?php echo $name ;  ?></h2>
 		<script type = 'text/javascript'> 
-			var loader<?php echo $city_id ?> = $('#loader<?php echo $city_id ?>').percentageLoader({width : 160, height : 160, progress : 0.0, value : ''});
+			var loader<?php echo $city_id ?> = $('#loader<?php echo $city_id ?>').percentageLoader({width : 160, height : 160, progress : <?php echo $percentage ?>, value : ''});
 		</script>
 	</div>
 	<script type='text/javascript' > loader<?php echo $city_id ?>.setProgress(<?php echo $percentage ?>); </script>
@@ -61,7 +61,7 @@ foreach($cities as $city_id=>$name) {
 <div id = 'loader_nat' class = 'city_loader'>
 <h2 class = 'label'>National</h2>
 <script type = 'text/javascript'> 
-	var loader_nat = $('#loader_nat').percentageLoader({width : 160, height : 160, progress : 0.0, value : ''});
+	var loader_nat = $('#loader_nat').percentageLoader({width : 160, height : 160, progress : <?php echo ($national_surveyed_count / $national_total_count) ?>, value : ''});
 </script>
 </div>
 <script type='text/javascript' > loader_nat.setProgress(<?php echo ($national_surveyed_count / $national_total_count) ?>); </script>
@@ -70,5 +70,6 @@ foreach($cities as $city_id=>$name) {
 
 </div>
 
+<script type="text/javascript" src="http://makeadiff.in/madapp/js/uservoice.js"></script>
 </body>
 </html>

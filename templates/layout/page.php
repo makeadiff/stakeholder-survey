@@ -29,7 +29,7 @@
 <script src="<?php echo $config['site_url'] ?>bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
 <script src="<?php echo $config['site_url'] ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<?php echo $config['site_home'] ?>js/application.js" type="text/javascript"></script>
-
 <?php echo $js_includes ?>
+<script type="text/javascript" src="http://makeadiff.in/madapp/js/uservoice.js"></script>
 </body>
 </html>
