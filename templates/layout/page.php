@@ -1,35 +1,61 @@
-<!DOCTYPE HTML>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php echo $title?></title>
-<link href="<?php echo $config['site_home'] ?>css/style.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $config['site_url'] ?>images/silk_theme.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $config['site_url'] ?>bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="<?php echo $config['site_url'] ?>bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-
-<?php echo $css_includes ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><?php echo $config['site_title'] ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="<?php echo $config['site_url'] ?>css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $config['site_url'] ?>css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $config['site_home'] ?>css/style.css" />
 </head>
-<body>
-<div id="wrapper" class="container">
-<div id="header" class="navbar navbar-fixed-top navbar-default" role="navigation">
-<div id="nav" class="container">
-	<div class="navbar-brand"><a href="<?php echo $config['site_home'] ?>"><img src="../okr/images/logo.png" height="100" /></a></div>
-</div>
-</div>
-<div id="content" class="container">
+
+<body class="blue-red">
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="<?php echo $config['site_url'] ?>madapp/index.php/dashboard/dashboard_view">MADApp</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="<?php echo $config['site_url'] ?>madapp/index.php/auth/logout">Logout</a></li>
+
+        </ul>
+
+    </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="board transparent-container">
+
+<?php
+$message['success'] = i($QUERY,'success');
+$message['error'] = i($QUERY,'error');
+if(!empty($message['success']) or !empty($message['error'])) { ?>
+    <div class="message" id="error-message" <?php echo (!empty($message['error'])) ? '':'style="display:none;"';?>><?php echo (empty($message['error'])) ? '':$message['error'] ?></div>
+    <div class="message" id="success-message" <?php echo (!empty($message['success'])) ? '':'style="display:none;"';?>><?php echo (empty($message['success'])) ? '': $message['success'] ?></div>
+<?php } ?>
+
 
 <?php include($GLOBALS['template']->template); ?>
 
 </div>
-<div id="footer"></div>
 </div>
+<div id="footer"></div>
 
-<script src="<?php echo $config['site_url'] ?>bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
-<script src="<?php echo $config['site_url'] ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo $config['site_url'] ?>js/jquery-1.9.0.js"></script>
+<script type="text/javascript" src="<?php echo $config['site_url'] ?>js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="<?php echo $config['site_url'] ?>js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo $config['site_url'] ?>js/uservoice.js"></script>
 <script src="<?php echo $config['site_home'] ?>js/application.js" type="text/javascript"></script>
 <?php echo $js_includes ?>
-<script type="text/javascript" src="http://makeadiff.in/madapp/js/uservoice.js"></script>
 </body>
 </html>

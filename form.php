@@ -1,5 +1,6 @@
 <?php
 require('common.php');
+$survey_event_id = 3;
 
 if(empty($QUERY['vol'])) {
 	if(empty($_SESSION['user_id'])) {
@@ -16,7 +17,7 @@ if(empty($QUERY['vol'])) {
 	$user_id = base64_decode($QUERY['vol']); // 'MQ==' is Binny.
 }
 
-$result = $sql->from("SS_UserAnswer")->where(array("user_id"=>$user_id))->get();
+$result = $sql->from("SS_UserAnswer")->where(array("user_id"=>$user_id,'survey_event_id'=>$survey_event_id))->get();
 if($result) {
 	render('entered.php');
 	exit;

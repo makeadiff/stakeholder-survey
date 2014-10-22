@@ -1,5 +1,6 @@
-
-<h1 class="title">Volunteer Survey for: <?php echo $user['name'] ?></h1>
+<div id="survey" class="row">
+<div class="col-md-offset-3 col-md-6">
+<h1 class="title"><?php echo $config['site_title']; ?> for <strong><?php echo $user['name'] ?></strong></h1>
 
 <form action="save.php" method="post">
 <?php foreach($questions as $q) { ?>
@@ -13,6 +14,23 @@
 	}
 } ?>
 
+
+</div><br />
+<?php } ?>
+
+<div class="talk-back">
+<div class="question">Speak to Jithin</div>
+<div class="answer">This Message will be directly sent to Jithin...</div>
+<textarea name="speak-to-jithin" class="form-control" rows="5" cols="70"></textarea><br /><br />
+</div>
+
+
+<input type="hidden" name="survey_event_id" value="<?php echo $survey_event_id; ?>" />
+<input type="submit" name="action" class="btn btn-default" value="Submit Answers" />
+</form>
+<br />
+</div></div>
+
 <!-- 
 <div class="btn-group answers-options" data-toggle-id="answer-<?php echo $q['id'] ?>" data-toggle="buttons-radio">
   <button type="button" value="1" class="btn btn-sm btn-danger" data-toggle="button">Very Bad</button>
@@ -23,10 +41,3 @@
 </div> 
 <input type="hidden" name="answer[<?php echo $q['id'] ?>]" id="answer-<?php echo $q['id'] ?>" value="3" />
 -->
-
-</div><br />
-<?php } ?>
-
-<input type="submit" name="action" class="btn btn-default" value="Submit Answers" />
-</form>
-<br />
