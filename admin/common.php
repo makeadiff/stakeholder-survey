@@ -1,7 +1,12 @@
 <?php
 require('../../common.php');
 
-$config['site_url'] = 'http://localhost/Sites/community/makeadiff/makeadiff.in/';
+if($server_host == 'localhost') {
+	$config['site_url'] = 'http://localhost/Sites/community/makeadiff/makeadiff.in/';
+} else {
+	$config['site_url'] = 'http://makeadiff.in/';
+}
+
 $config['site_folder'] = dirname(__FILE__);
 $template->page = str_replace("admin/", "", $template->page);
 $template->css_folder = 'admin/css';

@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php echo $config['site_title'] ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="<?php echo $config['site_url'] ?>css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $config['site_url'] ?>css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $config['library_url'] ?>css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $config['library_url'] ?>css/custom.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $config['site_home'] ?>css/style.css" />
 </head>
 
@@ -20,12 +20,12 @@
             <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="<?php echo $config['site_url'] ?>madapp/index.php/dashboard/dashboard_view">MADApp</a>
+        <a class="navbar-brand" href="<?php echo $config['library_url'] ?>index.php/dashboard/dashboard_view">MADApp</a>
 
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo $config['site_url'] ?>madapp/index.php/auth/logout">Logout</a></li>
+            <li><a href="<?php echo $config['library_url'] ?>index.php/auth/logout">Logout</a></li>
 
         </ul>
 
@@ -51,10 +51,10 @@ if(!empty($message['success']) or !empty($message['error'])) { ?>
 </div>
 <div id="footer"></div>
 
-<script type="text/javascript" src="<?php echo $config['site_url'] ?>js/jquery-1.9.0.js"></script>
-<script type="text/javascript" src="<?php echo $config['site_url'] ?>js/jquery.tablesorter.min.js"></script>
-<script type="text/javascript" src="<?php echo $config['site_url'] ?>js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<?php echo $config['site_url'] ?>js/uservoice.js"></script>
+<script type="text/javascript" src="<?php echo $config['library_url'] ?>js/jquery-1.9.0.js"></script>
+<script type="text/javascript" src="<?php echo $config['library_url'] ?>js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="<?php echo $config['library_url'] ?>js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo $config['library_url'] ?>js/uservoice.js"></script>
 <script src="<?php echo $config['site_home'] ?>js/application.js" type="text/javascript"></script>
 <?php echo $js_includes ?>
 </body>
