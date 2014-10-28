@@ -34,10 +34,14 @@ $cities = $sql->getById("SELECT id,name FROM City ORDER BY name");
 <?php
 $national_surveyed_count = 0;
 $national_total_count = 0;
+$cycle = get_cycle();
+$all_cycle = get_all_cycles();
+$current_cycle = $all_cycle[$cycle];
+
 foreach($cities as $city_id=>$name) {
 	if($name == "Test") continue;
 
-	$survey_count = $sql->getOne("SELECT COUNT(DISTINCT U.id) FROM SS_UserAnswer UA INNER JOIN User U ON U.id=UA.user_id WHERE U.status='1' AND U.user_type='volunteer' AND U.city_id=$city_id AND U.verification_status LIKE '%email%'");
+	$survey_count = $sql->getOne("SELECT COUNT(DISTINCT U.id) FROM SS_UserAnswer UA INNER JOIN User U ON U.id=UA.user_id WHERE UA.added_on >= '$current_cycle[start]' AND UA.added_on <= '$current_cycle[end]' AND U.status='1' AND U.user_type='volunteer' AND U.city_id=$city_id AND U.verification_status LIKE '%email%'");
 	$total_count = $sql->getOne("SELECT COUNT(U.id) FROM User U WHERE U.status='1' AND U.user_type='volunteer' AND U.city_id=$city_id AND U.verification_status LIKE '%email%'");
 	$national_surveyed_count += $survey_count;
 	$national_total_count += $total_count;
