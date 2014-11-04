@@ -2,7 +2,7 @@
 require('./common.php');
 
 $page = new Crud('SS_Question');
-$page->title = "Aggrigates";
+$page->title = "Aggregates";
 
 $city_id = 0;
 $vertical_id = 1;
@@ -29,5 +29,7 @@ $page->setListingQuery("SELECT id, question FROM SS_Question WHERE status='1'");
 $page->allow['searching'] = false;
 $page->allow['edit'] = false;
 $page->allow['add'] = false;
+$page->allow['delete'] = false;
+$page->allow['bulk_operations'] = false;
 
 render();

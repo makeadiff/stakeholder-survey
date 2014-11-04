@@ -1,6 +1,6 @@
 <?php
 require('common.php');
-$survey_event_id = 3;
+$survey_event_id = get_cycle();
 
 if(empty($QUERY['vol'])) {
 	if(empty($_SESSION['user_id'])) {
