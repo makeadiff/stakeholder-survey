@@ -1,5 +1,6 @@
 <?php
 require('../../common.php');
+require_once('../../support/includes/application.php');
 
 if($server_host == 'localhost') {
 	$config['site_url'] = 'http://localhost/Sites/community/makeadiff/makeadiff.in/';
