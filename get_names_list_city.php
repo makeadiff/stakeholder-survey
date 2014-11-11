@@ -27,10 +27,11 @@ if($people) {
     }
 
     foreach($people as $person) {
+        $status = $sql->getById("SELECT id FROM SS_UserAnswer WHERE survey_event_id = $cycle AND user_id=$id");
         if( !empty($status) )
             print "<tr><td>" . $person['name'] . "</td><td>" . "Done" . "</td></tr>";
     }
-        
+
 
     $percentage = round((($verified/$counter)*100),0,PHP_ROUND_HALF_DOWN);
 
