@@ -6,32 +6,31 @@ $cycle = get_cycle();
 $city_progress = 0;
 $counter = 0;
 $verified = 0;
-$people = $sql->getById("SELECT DISTINCT(U.id) as id, UA.answer as answer,U.name as name FROM SS_UserAnswer UA RIGHT OUTER JOIN User U ON U.id=UA.user_id WHERE UA.survey_event_id=$cycle AND U.status='1' AND U.user_type='volunteer' AND U.city_id=$city_id");
+$people = $sql->getById("SELECT * FROM User WHERE status='1' AND user_type='volunteer' AND city_id=$city_id");
 
 if($people) {
-
-    foreach($people as $person) {
-        $counter++;
-        if( !empty($person['answer']) )
-            $verified++;
-    }
-
-    $percentage = round((($verified/$counter)*100),0,PHP_ROUND_HALF_DOWN);
-
-    //print "<h2 class='no_completed'>Email & Phone Verified : $verified/$counter ($percentage%)</h2>";
 
     print "<table>";
     print"<th>Name</th><th>Status</th>";
     foreach($people as $person) {
-        if(!empty($person['answer']))
-            $status = "Done";
-        else
-            $status = "Pending";
+        $counter++;
+        $id = $person['id'];
 
-        print "<tr><td>" . $person['name'] . "</td><td>" . $status . "</td></tr>";
-
+        $status = $sql->getById("SELECT id FROM SS_UserAnswer WHERE survey_event_id = $cycle AND user_id=$id");
+        if( !empty($status) ){
+            $verified++;
+            print "<tr><td>" . $person['name'] . "</td><td>" . "Done" . "</td></tr>";
+        }else {
+            print "<tr><td>" . $person['name'] . "</td><td>" . "Pending" . "</td></tr>";
+        }
 
     }
+
+    $percentage = round((($verified/$counter)*100),0,PHP_ROUND_HALF_DOWN);
+
+
+
+
 
 
 
