@@ -2,7 +2,7 @@
 <div class="col-md-offset-3 col-md-6">
 <h1 class="title"><?php echo $config['site_title']; ?> for <strong><?php echo $user['name'] ?></strong></h1>
 
-<form action="save.php" method="post">
+<form action="save.php" method="post" id="main-form">
 <?php foreach($questions as $q) { ?>
 <div class="question-area">
 <div class="question"><?php echo $q['question'] ?></div>
