@@ -1,11 +1,11 @@
 <div id="survey" class="row">
 <div class="col-md-offset-3 col-md-6">
 <h1 class="title"><?php echo $config['site_title']; ?> for <strong><?php echo $user['name'] ?></strong></h1>
-
+<br /><br />
 <form action="save.php" method="post" id="main-form">
 <?php foreach($questions as $q) { ?>
 <div class="question-area">
-<div class="question"><?php echo $q['question'] ?></div>
+<div class="question">Q. <?php echo $q['question'] ?></div>
 
 <?php foreach ($answers as $ans) { 
 	if($ans['question_id'] == $q['id']) {

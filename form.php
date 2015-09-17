@@ -19,8 +19,8 @@ if(empty($QUERY['vol'])) {
 
 $result = $sql->from("SS_UserAnswer")->where(array("user_id"=>$user_id,'survey_event_id'=>$survey_event_id))->get();
 if($result) {
-	render('entered.php');
-	exit;
+	// render('entered.php');
+	// exit;
 }
 
 $user = $sql->from("User")->find($user_id);

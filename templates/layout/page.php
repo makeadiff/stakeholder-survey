@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo $config['library_url'] ?>css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $config['library_url'] ?>css/custom.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $config['site_home'] ?>css/style.css" />
+    <?php echo $css_includes ?>
 </head>
 
 <body class="blue-red">

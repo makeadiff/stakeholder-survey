@@ -1,2 +1,2 @@
 <br />
-<p><strong>Data saved. Thanks for your input.</strong></p>
+<p class="text-center" style="font-size:1.4em;">Data saved. Thanks for your input.</p>
