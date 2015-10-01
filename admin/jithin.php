@@ -8,8 +8,8 @@ $page = new Crud('SS_UserAnswer');
 $page->title = "Speak to Jithin";
 
 $page->addField('name', 'Name', 'virtual');
-$page->setListingFields('name', 'comment');
-$page->setListingQuery("SELECT U.id, U.name, UA.comment
+$page->setListingFields('name', 'comment', 'added_on');
+$page->setListingQuery("SELECT U.id, U.name, UA.comment, UA.added_on
 		FROM SS_UserAnswer UA INNER JOIN User U ON U.id=UA.user_id 
 		WHERE UA.question_id=0 AND answer=0 AND U.status='1' AND U.user_type='volunteer' AND UA.survey_event_id=$survey_event_id");
 
@@ -20,4 +20,3 @@ $page->allow['edit'] = false;
 $page->allow['add'] = false;
 
 render();
- 
