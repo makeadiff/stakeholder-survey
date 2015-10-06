@@ -5,7 +5,6 @@ $page = new Crud('SS_Question');
 $page->title = "Aggregates";
 
 $city_id = 0;
-$vertical_id = 1;
 $survey_event_id = $sql->getOne("SELECT MAX(id) FROM SS_Survey_Event"); //get_cycle();
 
 if(isset($QUERY['survey_event_id'])) $survey_event_id = $QUERY['survey_event_id'];
@@ -31,7 +30,7 @@ if($city_id) {
 
 foreach ($all_answer as $answer_number => $answer_text) {
 	$page->addField('answer_'.$answer_number, $answer_text, 'virtual', array(), array(
-		'sql'=>"SELECT COUNT(DISTINCT U.id) FROM SS_UserAnswer UA
+		'sql'=>"SELECT COUNT( U.id) FROM SS_UserAnswer UA
 					INNER JOIN User U ON U.id=UA.user_id
 					WHERE $where U.status='1' AND U.user_type='volunteer' AND UA.survey_event_id=$survey_event_id
 					AND UA.answer='$answer_number' AND UA.question_id='%id%'"));

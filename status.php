@@ -41,7 +41,9 @@ $cycle = get_cycle();
 foreach($cities as $city_id=>$name) {
 	if($name == "Test") continue;
 
-	$survey_count = $sql->getOne("SELECT COUNT(DISTINCT U.id) FROM SS_UserAnswer UA INNER JOIN User U ON U.id=UA.user_id WHERE UA.survey_event_id=$cycle AND U.status='1' AND U.user_type='volunteer' AND U.city_id=$city_id");
+	$survey_count = $sql->getOne("SELECT COUNT(DISTINCT U.id) FROM SS_UserAnswer UA 
+		INNER JOIN User U ON U.id=UA.user_id WHERE UA.survey_event_id=$cycle 
+			AND U.status='1' AND U.user_type='volunteer' AND U.city_id=$city_id AND U.joined_on < '2015-08-31 00:00:00'");
 	$total_count = $sql->getOne("SELECT COUNT(U.id) FROM User U WHERE U.status='1' AND U.user_type='volunteer' AND U.city_id=$city_id");
 	$national_surveyed_count += $survey_count;
 	$national_total_count += $total_count;
@@ -52,7 +54,7 @@ foreach($cities as $city_id=>$name) {
 	<div id = 'loader<?php echo $city_id ?>' class = 'city_loader'>
 		<h2 class = 'label'><?php echo $name ;  ?></h2>
 		<script type = 'text/javascript'> 
-			var loader<?php echo $city_id ?> = $('#loader<?php echo $city_id ?>').percentageLoader({width : 160, height : 160, progress : <?php echo $percentage ?>, value : ''});
+			var loader<?php echo $city_id ?> = $('#loader<?php echo $city_id ?>').percentageLoader({width : 160, height : 160, progress : <?php echo $percentage ?>, value : '<?php echo $survey_count ."/".$total_count ?>'});
 		</script>
 	</div>
 	<script type='text/javascript' > loader<?php echo $city_id ?>.setProgress(<?php echo $percentage ?>); </script>
@@ -64,7 +66,7 @@ foreach($cities as $city_id=>$name) {
 <div id = 'loader_nat' class = 'city_loader'>
 <h2 class = 'label'>National</h2>
 <script type = 'text/javascript'> 
-	var loader_nat = $('#loader_nat').percentageLoader({width : 160, height : 160, progress : <?php echo ($national_surveyed_count / $national_total_count) ?>, value : '<?php echo $national_surveyed_count ?>'});
+	var loader_nat = $('#loader_nat').percentageLoader({width : 160, height : 160, progress : <?php echo ($national_surveyed_count / $national_total_count) ?>, value : '<?php echo $national_surveyed_count . "/" . $national_total_count ?>'});
 </script>
 </div>
 <script type='text/javascript' > loader_nat.setProgress(<?php echo ($national_surveyed_count / $national_total_count) ?>); </script>
