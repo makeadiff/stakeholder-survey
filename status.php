@@ -44,7 +44,7 @@ foreach($cities as $city_id=>$name) {
 	$survey_count = $sql->getOne("SELECT COUNT(DISTINCT U.id) FROM SS_UserAnswer UA 
 		INNER JOIN User U ON U.id=UA.user_id WHERE UA.survey_event_id=$cycle 
 			AND U.status='1' AND U.user_type='volunteer' AND U.city_id=$city_id AND U.joined_on < '2015-08-31 00:00:00'");
-	$total_count = $sql->getOne("SELECT COUNT(U.id) FROM User U WHERE U.status='1' AND U.user_type='volunteer' AND U.city_id=$city_id");
+	$total_count = $sql->getOne("SELECT COUNT(U.id) FROM User U WHERE U.status='1' AND U.user_type='volunteer' AND U.city_id=$city_id AND U.joined_on < '2015-08-31 00:00:00'");
 	$national_surveyed_count += $survey_count;
 	$national_total_count += $total_count;
 
