@@ -1,6 +1,11 @@
 <?php
 require('common.php');
-$survey_event_id = $sql->getOne("SELECT MAX(id) FROM SS_Survey_Event"); //get_cycle();
+$survey_event_id = $sql->getOne("SELECT MAX(id) FROM SS_Survey_Event WHERE status='1'"); //get_cycle();
+
+if(!$survey_event_id) {
+	render("closed.php");
+	exit;
+}
 
 if(empty($QUERY['vol'])) {
 	if(empty($_SESSION['user_id'])) {
