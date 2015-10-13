@@ -6,7 +6,7 @@ $cycle = get_cycle();
 $city_progress = 0;
 $counter = 0;
 $verified = 0;
-$people = $sql->getById("SELECT * FROM User WHERE status='1' AND user_type='volunteer' AND city_id=$city_id  AND joined_on < '2015-08-31 00:00:00'");
+$people = $sql->getById("SELECT * FROM User WHERE status='1' AND user_type='volunteer' AND city_id=$city_id");
 
 if($people) {
     print "<table>";
