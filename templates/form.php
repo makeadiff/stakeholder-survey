@@ -19,8 +19,8 @@
 <?php } ?>
 
 <div class="talk-back">
-<div class="question">Speak to Jithin</div>
-<div class="answer">This Message will be directly sent to Jithin...</div>
+<div class="question">Speak to CEO</div>
+<div class="answer">This message will be directly sent to the CEO...</div>
 <textarea name="speak-to-jithin" class="form-control" rows="5" cols="70"></textarea><br /><br />
 </div>
 
