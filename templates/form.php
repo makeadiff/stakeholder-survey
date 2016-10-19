@@ -19,11 +19,10 @@
 <?php } ?>
 
 <div class="talk-back">
-<div class="question">Speak to CEO</div>
-<div class="answer">This message will be directly sent to the CEO...</div>
+<div class="question">Speak to Jithin and Rizwan...</div>
+<div class="answer">Anything you would like to share with our CEOs.</div>
 <textarea name="speak-to-jithin" class="form-control" rows="5" cols="70"></textarea><br /><br />
 </div>
-
 
 <input type="hidden" name="survey_event_id" value="<?php echo $survey_event_id; ?>" />
 <input type="submit" name="action" class="btn btn-default" value="Submit Answers" />
